@@ -1,4 +1,5 @@
 ﻿using JwtTokenApp.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
@@ -9,7 +10,8 @@ using System.Text;
 
 namespace JwtTokenApp.Controllers
 {
-    [Controller]
+    [ApiController]
+    [Route("[controller]")]
     public class AuthorizationController : Controller
     {
         private static List<User> UserList = new List<User>();

@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace JwtTokenApp.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     [ApiController]
     [Route("[controller]")]
     public class ProductController : Controller

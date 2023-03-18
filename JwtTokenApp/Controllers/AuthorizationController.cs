@@ -38,7 +38,7 @@ namespace JwtTokenApp.Controllers
             var key = Encoding.ASCII.GetBytes(applicationSettings.Secret);
             var tokenDescriptor = new SecurityTokenDescriptor
             {
-                Subject = new ClaimsIdentity(new[] {new Claim("id",user.UserName)}),
+                Subject = new ClaimsIdentity(new[] {new Claim("id",user.UserName), new Claim(ClaimTypes.Role, user.Role) }),
                 Expires= DateTime.UtcNow.AddDays(10),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key),SecurityAlgorithms.HmacSha512Signature)
             };
